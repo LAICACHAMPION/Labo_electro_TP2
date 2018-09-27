@@ -1,0 +1,274 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{makecell}		%Para emprolijar celdas de tablas
+\usepackage{amsmath}
+\usepackage{upgreek}		%puedo usar \uptau que es como \tau pero con mas rulito
+\usepackage{steinmetz}
+\usepackage{mathtools}
+\usepackage{placeins}
+\usepackage[textwidth=14cm]{geometry}	%texto ocupa mas ancho de pagina
+\usepackage{xcolor}		%se usa en \code
+
+
+\usepackage[parfill]{parskip}		%pone espacio entre parrafos
+\setlength{\parindent}{10pt}		%cuanta sangria al principio de un parrafo
+\usepackage{indentfirst}		%pone sangria al primer parrafo de una seccion
+
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter	%magia de categoria de caracteres en Tex, ignorar
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother	%magia de categoria de caracteres en Tex, ignorar
+
+%Definicion comando \parsum: hace re piola el simbolo de la suma en paralelo
+\newcommand{\parsum}{\mathbin{\!/\mkern-5mu/\!}} 
+
+%Definicion comando \code: poen el texto en fuente monoespaciada con fondo gris 
+%al estilo del codigo de stack overflow
+\definecolor{light-gray}{gray}{0.95} 
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Análisis en frecuencia del RC mediante sweep del generador
+\end_layout
+
+\begin_layout Standard
+Se utilizará el barrido o sweep en frecuencia de un generador para visualizar
+ en el osciloscopio la respuesta en frecuencia gráficamente.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para lograr el barrido en frecuencia, se utilizan dos generadores intercomunicad
+os entre sí.
+ Un generador (generador 1) se encargará de emitir la señal de trigger mediante
+ la cual se podrá observar claramente el barrido en el osciloscopio.
+ El segundo generador (generador 2) será el que efectivamente hará el barrido
+ en frecuencia, con un período de barrido de un valor igual o inferior al
+ período de la señal de trigger.
+ De esta manera, un sweep entero entrará dentro del intervalo temporal en
+ el que se observa un período de la señal de trigger.
+ Los dos generadores estarán sincronizados mendiante la salida sync del
+ generador 1 y la entrada externa del generador 2.
+ El generador 1 estará conectado directamente a un canal del osciloscopio,
+ mientras que la señal de entrada del circuto será la del barrido.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado que se obtuvo la frecuencia de corte del circuito RC pasabajos sobre
+ el cual se medirá la respuesta en frecuencia (valor cercano a 25kHz), entonces
+ se eligió un rango de frecuencias para el barrido tal que se cubran al
+ menos dos décadas antes y dos décadas despues de la fecuencia de corte,
+ para poder observar claramente los puntos característicos de la respuesta
+ en frecuencia del circuito.
+ Es por esto que se eligió barrer entre los 50Hz y los 500kHz.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para la lectura en modo X-Y, se elige una frecuencia baja de trigger para
+ poder observar más detenidamente en el osciloscopio.
+ La frecuenca elegida fue de 100 Hz y se ajustó al generador de la señal
+ de entrada de manera acorde.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imágenes/ej3a.png
+	scale 140
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Barrido en canal X con modo XY
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para la lectura en modo normal, se recuerda que el gráfico del osiloscopio
+ será logarítmico en tiempo por cómo se configuró al barrido y en veces
+ para la amplitud.
+ Para la señal de barrido se eligió una señal rampa de trigger, de período
+ 100 milisegundos, con una entrada de tipo sweep de período de barrido de
+ 99 milisegundos, con barrido logarítimico en tiempo.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imágenes/ej3b.png
+	scale 130
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Barrido en modo normal
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se logra apreciar un gráfico de un filtro de tipo pasabajos, en el que se
+ atenúan claramente las frecuencias altas.
+ 
+\end_layout
+
+\end_body
+\end_document

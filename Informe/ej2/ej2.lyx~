@@ -1,0 +1,997 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{makecell}		%Para emprolijar celdas de tablas
+\usepackage{amsmath}
+\usepackage{upgreek}		%puedo usar \uptau que es como \tau pero con mas rulito
+\usepackage{steinmetz}
+\usepackage{mathtools}
+\usepackage{placeins}
+%\usepackage[textwidth=14cm]{geometry}	%texto ocupa mas ancho de pagina
+\usepackage{xcolor}		%se usa en \code
+
+\usepackage[american]{circuitikz}
+
+\usepackage[parfill]{parskip}		%pone espacio entre parrafos
+\setlength{\parindent}{10pt}		%cuanta sangria al principio de un parrafo
+\usepackage{indentfirst}		%pone sangria al primer parrafo de una seccion
+
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter	%magia de categoria de caracteres en Tex, ignorar
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother	%magia de categoria de caracteres en Tex, ignorar
+
+%Definicion comando \parsum: hace re piola el simbolo de la suma en paralelo
+\newcommand{\parsum}{\mathbin{\!/\mkern-5mu/\!}} 
+
+%Definicion comando \code: poen el texto en fuente monoespaciada con fondo gris 
+%al estilo del codigo de stack overflow
+\definecolor{light-gray}{gray}{0.95} 
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Circuito pasa altos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+En esta seccion se analizara un circuito RC pasa altos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}[scale=2]
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+def
+\backslash
+xPortLeft{0}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+def
+\backslash
+yTerminalBottom{0}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+def
+\backslash
+yR{1.5}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+def
+\backslash
+xL{1}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+def
+\backslash
+xR{1}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+def
+\backslash
+xC{1.5}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+def
+\backslash
+xPortRight{2.25}
+\end_layout
+
+\begin_layout Plain Layout
+
+    % left loop
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+draw                             (
+\backslash
+xPortLeft,
+\backslash
+yR)
+\end_layout
+
+\begin_layout Plain Layout
+
+            to[C,l_=$C$]           (
+\backslash
+xR,
+\backslash
+yR)
+\end_layout
+
+\begin_layout Plain Layout
+
+           to[short]                   (
+\backslash
+xC,
+\backslash
+yR) 
+\end_layout
+
+\begin_layout Plain Layout
+
+           to[R=$R$,-]           (
+\backslash
+xC,
+\backslash
+yTerminalBottom)
+\end_layout
+
+\begin_layout Plain Layout
+
+            to[short,i=$i(t)$]          (
+\backslash
+xPortLeft,
+\backslash
+yTerminalBottom)
+\end_layout
+
+\begin_layout Plain Layout
+
+            to[open,v^<=$V_g(t)$,o-o]   (
+\backslash
+xPortLeft,
+\backslash
+yR);
+\end_layout
+
+\begin_layout Plain Layout
+
+    % right branch     
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw                               (
+\backslash
+xC,
+\backslash
+yR)
+\end_layout
+
+\begin_layout Plain Layout
+
+            to[short]                   (
+\backslash
+xPortRight,
+\backslash
+yR)
+\end_layout
+
+\begin_layout Plain Layout
+
+            to[open,v^=$V_R(t)$,o-o]    (
+\backslash
+xPortRight,
+\backslash
+yTerminalBottom)
+\end_layout
+
+\begin_layout Plain Layout
+
+            to[short]                   (
+\backslash
+xC,
+\backslash
+yTerminalBottom);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+circuito RC pasa altos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+El circuito se construyó con los mismos componentes del circuito pasa bajos
+ ($R=5.596k
+\backslash
+Omega$ y $C=1.139nF$).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Analisis Matematico
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Aplicando la formula de divisor de tensión, se obtiene:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frac {V_{R}}{R}=
+\backslash
+frac{V_{G}}{R + 
+\backslash
+frac{1}{sC}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+Finalmente operando alegr
+\backslash
+'aicamente se obtiene la transeferencia del circuito
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+H(s)=
+\backslash
+frac{V_{R}}{V_{G}}=
+\backslash
+frac {RC 
+\backslash
+cdot s}{
+\backslash
+frac{s}{
+\backslash
+left(
+\backslash
+frac{1}{RC}
+\backslash
+right)}+1} 
+\backslash
+label{eq=tfF}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Respuesta en frecuencia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+A partir de la ecuaci
+\backslash
+'on 
+\backslash
+ref{eq=tfF}, podemos hallar la respuesta en frecuencia evalu
+\backslash
+'andola en $s= i2
+\backslash
+pi f$.
+ Dicha función transferencia corresponde a un sistema de primer orden.
+ Posee un cero en el origen y un polo en $f_{p}=25kHz$ (caculado a partir
+ de la respuesta en frecuencia y de los valores de los componentes utilizados).
+ Se esperar
+\backslash
+'ia que la fase comience en $90^
+\backslash
+circ$, una decada antes comience a descender m
+\backslash
+'as notablemente, llegando a $45^
+\backslash
+circ$ en $f_{p}$, y una decada despues de $f_{p}$ sea $0^
+\backslash
+circ$.
+ En cuanto a la magnitud, se esperar
+\backslash
+'ia que suba $20dB$ por d
+\backslash
+'ecada antes de $f_{p}$ y luego se estabilice en $0dB$.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/ej2_bode_mag.png
+	scale 70
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta en frecuencia Magnitud
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+label{fig=ej2Mag}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/ej2_bode_fase.png
+	scale 70
+	rotateOrigin center
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta en frecuencia Fase
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig=ej2Fase}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Las figuras 
+\backslash
+ref{fig=ej2Mag} y 
+\backslash
+ref{fig=ej2Fase} son la superposici
+\backslash
+'on de la respuesta en frecuencia medida, la calculada y la medida indirectament
+e en el circuito pasa bajos.
+ Esta 
+\backslash
+'ultima se obtuvo de la siguiente manera: suponiendo que el desfasaje entre
+ la tensi
+\backslash
+'on en la resistencia y el capacitor es de $90^
+\backslash
+circ$, entonces se podr
+\backslash
+'ia obtener para cada $V_C$ y $V_{in}$ a $|V_R|=
+\backslash
+sqrt{V_{in}^2-V_C^2}$ y $
+\backslash
+phase{V_R}= 
+\backslash
+phase{V_C}+90^
+\backslash
+circ$.
+\backslash
+par
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Se puede observar en ambos graficos que el modelo predice con considerable
+ precisión lo que se mide en el circuito.
+ Sin embargo las mediciones directa e indirecta en ciertos casos difieren.
+ Estas diferencias se pueden deber a que para medir indirectamente la tensi
+\backslash
+'on en la resitencia, se hizo la suposici
+\backslash
+'on que a toda frecuencia la corriente y la tensi
+\backslash
+'on en el RC estan desfasados $90^
+\backslash
+circ$.
+   
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Respuesta a se
+\backslash
+~nales triangulares
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Se excit
+\backslash
+'o al circuito con señales triangulares de distintas frecuencias.
+ En esta sección, las señales amarillas representan la entrada y las verdes
+ representan la salida.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/ej29_d5.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta a señal triangular de 
+\begin_inset Formula $500Hz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig=ej2_500hz}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+En frecuencias una d
+\backslash
+'ecada por debajo de $f_{P}$, el numerador de la función transferencia se
+ puede aproximar a 1, y de esta manera la funci
+\backslash
+'on transferencia se puede aproximar a $H(s)=s 
+\backslash
+cdot RC$.
+ Antitransformando por Laplace, se obtiene que $V_{R}=RC 
+\backslash
+cdot 
+\backslash
+frac {dV_{g}}{dt}$, es decir el sistema se comporta como un derivador, tal
+ como se observa en la figura 
+\backslash
+ref{fig=ej2_500hz}.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/ej29_d4.png
+	scale 40
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta a señal triangular de 
+\begin_inset Formula $24KHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig=ej2_24k}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<<<<<< HEAD
+Tal como se predijo anteriormente el circuito no se comporta como derivador.
+ El tiempo característico del circuito es $
+\backslash
+tau =6.7
+\backslash
+mu s$ y la mitad del período de la señal es de $21
+\backslash
+mu s$, del orden de cinco veces el tiempo característico lo que se observa
+ en la figura es como el transitorio del circuito deforma la señal de entrada.
+=======
+Tal como se predijo anteriormente, el circuito no se comporta como derivador.
+ El tiempo caracter
+\backslash
+'istico del circuito es $
+\backslash
+tau =6.7
+\backslash
+mu s$ y la mitad del per
+\backslash
+'iodo de la señal es de $21
+\backslash
+mu s$, del orden de cinco veces el tiempo caracter
+\backslash
+'istico.
+ Lo que se observa en la figura es, entonces, c
+\backslash
+'omo el transitorio del circuito deforma la señal de entrada.
+>>>>>>> 9d658b0f389b0f560adb77a285abd5bc5b031873
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/ej29_d6.png
+	scale 40
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta a señal triangular de 
+\begin_inset Formula $100KHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig=ej2_100k}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+En la figura 
+\backslash
+<<<<<<< HEAD
+ref{fig=ej2_100k}, se observa que la señal de salida todavía se ve afectada
+ por el transitorio del circuito, esto se debe a que la mitad del período
+ de la frecuencia de entrada ($5
+\backslash
+mu s$) es comparable con los 6uS del tiempo característico del $RC$.
+=======
+ref{fig=ej2_100k}, se observa que la señal de salida todav
+\backslash
+'ia se ve afectada por el transitorio del circuito.
+ Esto se debe a que la mitad del per
+\backslash
+'iodo de la frecuencia de entrada($5
+\backslash
+mu s$) es comparable con los $6
+\backslash
+mu s$ del tiempo caracter
+\backslash
+'istico del RC.
+ Sin embargo, ya llega a apreciarse c
+\backslash
+'omo pr
+\backslash
+'acticamente las distorsiones son despreciables.
+>>>>>>> 9d658b0f389b0f560adb77a285abd5bc5b031873
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
