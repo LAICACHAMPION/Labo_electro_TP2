@@ -12,9 +12,9 @@
 \usepackage{steinmetz}
 \usepackage{mathtools}
 \usepackage{placeins}
-\usepackage[textwidth=14cm]{geometry}	%texto ocupa mas ancho de pagina
 \usepackage{xcolor}		%se usa en \code
 
+\usepackage[american]{circuitikz}
 
 \usepackage[parfill]{parskip}		%pone espacio entre parrafos
 \setlength{\parindent}{10pt}		%cuanta sangria al principio de un parrafo
@@ -39,6 +39,10 @@
 %al estilo del codigo de stack overflow
 \definecolor{light-gray}{gray}{0.95} 
 \newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+
+\AtBeginDocument{\renewcommand\contentsname{Índice}}
+\AtBeginDocument{\renewcommand{\figurename}{Figura}}
+\AtBeginDocument{\renewcommand{\tablename}{Tabla}}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -61,11 +65,21 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement H
 \paperfontsize default
 \spacing single
-\use_hyperref false
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -89,6 +103,10 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -106,13 +124,24 @@
 
 \begin_body
 
-\begin_layout Section
-Análisis en frecuencia del RC mediante sweep del generador
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Caratula.lyx"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Se utilizará el barrido o sweep en frecuencia de un generador para visualizar
- en el osciloscopio la respuesta en frecuencia gráficamente.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -120,7 +149,7 @@ status open
 
 
 \backslash
-par
+tableofcontents
 \end_layout
 
 \end_inset
@@ -129,28 +158,16 @@ par
 \end_layout
 
 \begin_layout Standard
-Para lograr el barrido en frecuencia, se utilizan dos generadores intercomunicad
-os entre sí.
- Un generador (generador 1) se encargará de emitir la señal de trigger mediante
- la cual se podrá observar claramente el barrido en el osciloscopio.
- El segundo generador (generador 2) será el que efectivamente hará el barrido
- en frecuencia, con un período de barrido de un valor igual o inferior al
- período de la señal de trigger.
- De esta manera, un sweep entero entrará dentro del intervalo temporal en
- el que se observa un período de la señal de trigger.
- Los dos generadores estarán sincronizados mendiante la salida sync del
- generador 1 y la entrada externa del generador 2.
- El generador 1 estará conectado directamente a un canal del osciloscopio,
- mientras que la señal de entrada del circuto será la del barrido.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
+\begin_inset Newpage pagebreak
+\end_inset
 
 
-\backslash
-par
 \end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Introducción/labo_tp2_introducción.lyx"
 
 \end_inset
 
@@ -158,22 +175,9 @@ par
 \end_layout
 
 \begin_layout Standard
-Dado que se obtuvo la frecuencia de corte del circuito RC pasabajos sobre
- el cual se medirá la respuesta en frecuencia (valor cercano a 25kHz), entonces
- se eligió un rango de frecuencias para el barrido tal que se cubran al
- menos dos décadas antes y dos décadas despues de la fecuencia de corte,
- para poder observar claramente los puntos característicos de la respuesta
- en frecuencia del circuito.
- Es por esto que se eligió barrer entre los 50Hz y los 500kHz.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-par
-\end_layout
+\begin_inset CommandInset include
+LatexCommand input
+filename "ej1/ej1.lyx"
 
 \end_inset
 
@@ -181,38 +185,9 @@ par
 \end_layout
 
 \begin_layout Standard
-Para la lectura en modo X-Y, se elige una frecuencia baja de trigger para
- poder observar más detenidamente en el osciloscopio.
- La frecuenca elegida fue de 100 Hz y se ajustó al generador de la señal
- de entrada de manera acorde.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Imágenes/ej3a.png
-	scale 140
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Barrido en canal X con modo XY
-\end_layout
-
-\end_inset
-
-
-\end_layout
+\begin_inset CommandInset include
+LatexCommand input
+filename "ej2/ej2.lyx"
 
 \end_inset
 
@@ -220,44 +195,9 @@ Barrido en canal X con modo XY
 \end_layout
 
 \begin_layout Standard
-Para la lectura en modo normal, se recuerda que el gráfico del osiloscopio
- será logarítmico en tiempo por cómo se configuró al barrido y en veces
- para la amplitud.
- Para la señal de barrido se eligió una señal rampa de trigger, de período
- 100 milisegundos, con una entrada de tipo sweep de período de barrido de
- 99 milisegundos, con barrido logarítimico en tiempo.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Imágenes/ej3b.png
-	scale 130
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Barrido en modo normal
-\end_layout
-
-\end_inset
-
-
-\end_layout
+\begin_inset CommandInset include
+LatexCommand input
+filename "ej4/ej4.lyx"
 
 \end_inset
 
@@ -265,9 +205,20 @@ Barrido en modo normal
 \end_layout
 
 \begin_layout Standard
-Se logra apreciar un gráfico de un filtro de tipo pasabajos, en el que se
- atenúan claramente las frecuencias altas.
- 
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "labo_tp2_anexo.lyx"
+
+\end_inset
+
+
 \end_layout
 
 \end_body

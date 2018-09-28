@@ -107,27 +107,50 @@
 \begin_body
 
 \begin_layout Section
-Respuesta en frecuencia del osciloscopio
+Circuitos de segundo orden
 \end_layout
 
 \begin_layout Standard
-Se procede a medir la respuesta en frecuencia del osciloscopio con los filtros
- BW y AC activados en simultáneo, que se sabe previamente es la característica
- de un circuito pasabanda, con el filtro BW siendo un pasabajos y el AC
- un pasaltos.
- Teniendo en cuenta lo anterior y que la frecuencia de corte al activar
- el modo BW para el osciloscopio RIGOL del laboratorio será cercano a los
- 20 MHz, se decidió cambiar de generador a uno que pudiese abarcar frecuencias
- del orden 50MHz.
+Se obtiene la respuesta al escalón y en frecuencia para distintas configuracione
+s de circuitos RLC.
  
-\begin_inset ERT
-status open
+\end_layout
+
+\begin_layout Subsection
+Esquema a
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imágenes/Esquema_A.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esquema A
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-par
 \end_layout
 
 \end_inset
@@ -136,55 +159,8 @@ par
 \end_layout
 
 \begin_layout Standard
-A modo de resumir los efectos de los filtros mencionados y la razón de su
- uso:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{itemize}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-item 
-\end_layout
-
-\end_inset
-
-El 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-underline{filtro AC}
-\end_layout
-
-\end_inset
-
- introduce un capacitor en serie con el circuito de forma tal que se elimine
- la componente continua de la señal medida.
- Se atenúan de esta manera las frecuencias bajas de la señal.
+Por divisor de tensión, se obtiene la función de transferencia del circuito,
+ que resulta ser: 
 \begin_inset ERT
 status open
 
@@ -208,29 +184,18 @@ status open
 
 
 \backslash
-item 
+begin{centering}
 \end_layout
 
 \end_inset
 
-El 
-\begin_inset ERT
-status open
 
-\begin_layout Plain Layout
-
-
-\backslash
-underline{filtro BW}
 \end_layout
 
+\begin_layout Standard
+\begin_inset Formula $H(s)=\frac{s\cdot C\cdot R}{s^{2}\cdot L\cdot C+s\cdot C\cdot R+1}$
 \end_inset
 
- disminuye la frecuencia de corte del pasabajos del osciloscopio (para el
- RIGOL esta nueva frecuencia de corte pasa a ser de 20MHz) para atenuar
- componentes en frecuencias del ruido que sean superiores a la frecuencia
- de corte del osciloscopio y que pertenezcan a regiones que no resulten
- de interés, disminuyendo así la relación señal-ruido.
  
 \end_layout
 
@@ -242,7 +207,7 @@ status open
 
 
 \backslash
-end{itemize}
+end{centering}
 \end_layout
 
 \end_inset
@@ -251,9 +216,15 @@ end{itemize}
 \end_layout
 
 \begin_layout Standard
-Al activar los dos filtros en simultáneo, por ende, se podrán visualizar
- los efectos de un filtro de tipo pasabanda.
- 
+Teniendo en cuenta que 
+\begin_inset Formula $\frac{H(s)}{s}=Y(s)$
+\end_inset
+
+, donde 
+\begin_inset Formula $Y(s)$
+\end_inset
+
+ es la respuesta al escalón del sistema:
 \begin_inset ERT
 status open
 
@@ -270,8 +241,24 @@ par
 \end_layout
 
 \begin_layout Standard
-Se procedió a graficar la respuesta a sinusoidales de distintas frecuencias,
- con los puntos utilizados en el anexo.
+Entonces 
+\begin_inset Formula $y(t)=R\cdot\left(1-\mathrm{e}^{-\frac{R\cdot t}{2\cdot L}}\cdot\left(\cosh\left(\frac{t\,\sqrt{\frac{C\,R^{2}}{4}-L}}{\sqrt{C}\cdot L}\right)+\frac{\sqrt{C}\cdot R\cdot\sinh\left(\frac{t\,\sqrt{\frac{C\cdot R^{2}}{4}-L}}{\sqrt{C}\,L}\right)}{2\,\sqrt{\frac{C\cdot R^{2}}{4}-L}}\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las mediciones arrojaron un 
+\begin_inset Formula $MP=1.56V$
+\end_inset
+
+, una frecuencia de oscilación de 44843.05 Hz y un tiempo de establecimiento
+ del 5% de 
+\begin_inset Formula $49.1$
+\end_inset
+
+
 \begin_inset ERT
 status open
 
@@ -279,22 +266,17 @@ status open
 
 
 \backslash
-par
+micro
 \end_layout
 
 \end_inset
 
-
+s.
+ Las mediciones fueron tomadas con una señal de entrada de 5V.
 \end_layout
 
-\begin_layout Standard
-Se puede apreciar que la frecuencia de corte para el osciloscopio con el
- filtro BW activado, identificado a partir de la atenuación de 3dB, es cercano
- al valor 25MHz, lo cual se corresponde con los datos del RIGOL utilizado.
- Para la el filtro pasa altos, en cambio, la frecuencia de corte resulta
- ser un valor entre 0.2 y 0.5 Hz, un valor del todo esperable ya que el filtro
- AC elimina continua, por lo que se espera que únicamente las frecuencias
- muy bajas sean atenuadas significativamente.
+\begin_layout Subsection
+Esquema b
 \end_layout
 
 \begin_layout Standard
@@ -307,8 +289,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Imágenes/labo_tp1_ej4_x1.png
-	scale 80
+	filename Imágenes/Esquema_B.PNG
 
 \end_inset
 
@@ -319,7 +300,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Gráfico de Bode con punta X1
+Esquema b
 \end_layout
 
 \end_inset
@@ -327,9 +308,134 @@ Gráfico de Bode con punta X1
 
 \end_layout
 
+\begin_layout Plain Layout
+
+\end_layout
+
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Por divisor de tensión, se obtiene la función de transferencia del circuito,
+ que resulta ser: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H(s)=\frac{s^{2}\cdot L\cdot C+1}{s^{2}\cdot L\cdot C+s\cdot C\cdot R+1}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Teniendo en cuenta que 
+\begin_inset Formula $\frac{H(s)}{s}=Y(s)$
+\end_inset
+
+, donde 
+\begin_inset Formula $Y(s)$
+\end_inset
+
+ es la respuesta al escalón del sistema:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Entonces 
+\begin_inset Formula $y(t)=1-\frac{2\,\sqrt{C}\,R\,\sin\!\left(\frac{t\,\sqrt{4\,L-C\,R^{2}}}{2\,\sqrt{C}\,L}\right)\mathrm{e}^{-\frac{R\,t}{2\,L}}}{\sqrt{4L-CR^{2}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las mediciones arrojaron un 
+\begin_inset Formula $MP=1.58V$
+\end_inset
+
+, una frecuencia de oscilación de 45248.86 Hz y un tiempo de establecimiento
+ del 5% de 
+\begin_inset Formula $48,5$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+micro
+\end_layout
+
+\end_inset
+
+s.
+ Las mediciones fueron tomadas con una señal de entrada de 5V.
+\end_layout
+
+\begin_layout Subsection
+Esquema c
 \end_layout
 
 \begin_layout Standard
@@ -342,8 +448,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Imágenes/labo_tp1_ej4_x10.png
-	scale 80
+	filename Imágenes/Esquema_C.PNG
 
 \end_inset
 
@@ -354,11 +459,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Gráfico de Bode con punta x10 
+Esquema c
 \end_layout
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -368,11 +477,120 @@ Gráfico de Bode con punta x10
 \end_layout
 
 \begin_layout Standard
-Al utilizar una punta x10 para obtener la respuesta en frecuencia, se observa
- una frecuencia de corte mayor porque se utiliza un capacitor más chico
- que la punta x1 por lo cual se moverá la frecuencia de corte más a la derecha
- en el gráfico.
- Los dos gráficos se corresponden con un filtro pasabandas como se esperaba.
+Por divisor de tensión, se obtiene la función de transferencia del circuito,
+ que resulta ser: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H(s)=\frac{s^{2}\cdot L\cdot C}{s^{2}\cdot L\cdot C+s\cdot C\cdot R+1}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Teniendo en cuenta que 
+\begin_inset Formula $\frac{H(s)}{s}=Y(s)$
+\end_inset
+
+, donde 
+\begin_inset Formula $Y(s)$
+\end_inset
+
+ es la respuesta al escalón del sistema:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Entonces 
+\begin_inset Formula $y(t)=\mathrm{e}^{-\frac{R\,t}{2\,L}}\,\left(\cosh\!\left(\frac{t\,\sqrt{\frac{C\,R^{2}}{4}-L}}{\sqrt{C}\,L}\right)-\frac{\sqrt{C}\,R\,\sinh\!\left(\frac{t\,\sqrt{\frac{C\,R^{2}}{4}-L}}{\sqrt{C}\,L}\right)}{2\,\sqrt{\frac{C\,R^{2}}{4}-L}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las mediciones arrojaron un 
+\begin_inset Formula $MP=2.6V$
+\end_inset
+
+, una frecuencia de oscilación de 45146.72 Hz y un tiempo de establecimiento
+ del 5% de 
+\begin_inset Formula $42.7$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+micro
+\end_layout
+
+\end_inset
+
+s.
+ Las mediciones fueron tomadas con una señal de entrada de 5V.
 \end_layout
 
 \end_body

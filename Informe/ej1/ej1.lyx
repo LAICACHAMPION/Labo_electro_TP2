@@ -112,8 +112,850 @@
 
 \begin_body
 
-\begin_layout Standard
+\begin_layout Section
+Componentes pasivos medidos con analizador de impedancia
+\end_layout
 
+\begin_layout Standard
+Se utilizó un analizador de impedancias para medir la inductancia, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/Inductancia.png
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Inductancia de la bobina en función de la frecuencia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se observa del gráfico anterior que el elemento deja de ser inductivo puro
+ y se vuelve capacitivo a partir de una cierta frecuencia (a partir de los
+ 1820 kHz según las mediciones).
+ Es decir, el modelo de inductor ideal deja de ser suficiente cuando se
+ observa todo el espectro de posibles frecuencias de trabajo, por lo que
+ surge la necesidad de plantear un nuevo modelo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename imagenes/fase.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fase de la bobina en función de la frecuencia 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename imagenes/Q.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Q de la bobina en función de la frecuencia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename imagenes/Resistencia.png
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Resistencia de la bobina en función de la frecuencia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se observa de los gráficos anteriores y de los datos tomados que en la frecuenci
+a 
+\begin_inset Formula $f_{0}\approx1810\cdot kHz$
+\end_inset
+
+, el inductor entra en resonancia, siendo éste ahora un componente únicamente
+ resistivo.
+ Se utilizará este dato para lograr obtener un modelo de inductor más real.
+\end_layout
+
+\begin_layout Subsection
+Nuevo modelo para el inductor
+\end_layout
+
+\begin_layout Standard
+Se plantea un nuevo modelo de inductor, el inductor real, para lograr reproducir
+ de una manera más precisa la curvas obtenidas anteriormente.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El modelo propuesto es el siguiente:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/nuevo_modelo_inductor.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modelo del inductor real
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De donde se plantea la impedancia equivalente Z como:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Z=\frac{R+s\cdot L}{s^{2}\cdot C\cdot L+s\cdot C\cdot L+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Reemplazando 
+\begin_inset Formula $s=j\cdot w$
+\end_inset
+
+, obtenemos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Z=\frac{R+j\cdot w\cdot L}{(1-w^{2}\cdot C\cdot L)+j\cdot w\cdot C\cdot R}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Eligiendo 
+\begin_inset Formula $A=1-w^{2}\cdot C\cdot L$
+\end_inset
+
+, 
+\begin_inset Formula $B=w\cdot C\cdot R$
+\end_inset
+
+, 
+\begin_inset Formula $D=w\cdot L$
+\end_inset
+
+, se reduce la expresión anterior a una más sencilla y compleja, con su
+ parte real y su parte imaginaria explicitadas, de modo tal que 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Z=\frac{R\cdot A+D\cdot B}{A^{2}+B^{2}}+j\cdot\frac{D\cdot A-R\cdot B}{A^{2}+B^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sabiendo que la frecuencia de resonancia del circuito resulta ser 
+\begin_inset Formula $f_{0}=1810\cdot kHz$
+\end_inset
+
+(por lo que 
+\begin_inset Formula $w_{0}=2\cdot\pi\cdot f_{0}$
+\end_inset
+
+), y que en tal frecuencia la resistencia total es del orden de 
+\begin_inset Formula $r_{0}=2.7\cdot10^{5}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ohm
+\end_layout
+
+\end_inset
+
+podemos despejar la relación entre los componentes al anular la parte imaginaria
+ del equivalente y igualar la real a 
+\begin_inset Formula $r_{0}$
+\end_inset
+
+cuando nos encontramos en esa frecuencia de trabajo:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Imaginaria igual a cero:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D\cdot A=R\cdot B$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A=\frac{R\cdot B}{D}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Real igual a 
+\begin_inset Formula $r_{o}$
+\end_inset
+
+:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R\cdot A+D\cdot B=r_{0}\cdot(A^{2}+B^{2})$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{R^{2}\cdot B}{D}+D\cdot B=ro\cdot(\frac{R^{2}\cdot B^{2}}{D^{2}}+B^{2})$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $1=r_{0}\cdot\frac{B}{D}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{D}{B}=r_{0}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{L}{C\cdot R}=r_{0}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L=r_{0}\cdot R\cdot C$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De la relación 
+\begin_inset Formula $A=\frac{R\cdot B}{D}$
+\end_inset
+
+, se obtiene que 
+\begin_inset Formula $A=1-w_{0}^{2}\cdot C\cdot L=\frac{R}{r_{0}}$
+\end_inset
+
+, y por lo tanto 
+\begin_inset Formula $\left(\frac{1}{r_{0}}+w_{0}^{2}\cdot r_{0}\cdot C^{2}\right)^{-1}=R$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De aquí, fijando 
+\begin_inset Formula $C\text{=10pF},$
+\end_inset
+
+(un valor del todo razonable porque la capacitancia comienza a notarse a
+ muy altas frecuencias, se pueden determinar 
+\begin_inset Formula $R=286$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ohm
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Formula $L=0.772mH$
+\end_inset
+
+, valor cercano al nominal, de 
+\begin_inset Formula $1mH$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename imagenes/comparacion_con_modelo.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparación con modelo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Observando el módulo de la impedancia medida y comparándola con el módulo
+ de la impedancia calculada para el modelo utilizado, se observa que la
+ forma de la curva es completamente similar, con la ubicación del sobrepico
+ correcta.
+ Hay un problema de escala en el gráfico en cuanto a la máxima amplitud
+ lograda que no se descubrió en las cuentas el error, pero es claramente
+ por un factor de 2 sobrante en el gráfico medido a la hora de calcular
+ el módulo de la impedancia.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Luego de contrastar, se acepta el modelo propuesto como un modelo válido.
+ 
 \end_layout
 
 \end_body

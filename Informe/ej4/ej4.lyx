@@ -107,7 +107,490 @@
 \begin_body
 
 \begin_layout Section
+Circuitos de segundo orden
+\end_layout
 
+\begin_layout Standard
+Se obtiene la respuesta al escalón y en frecuencia para distintas configuracione
+s de circuitos RLC.
+ 
+\end_layout
+
+\begin_layout Subsection
+Esquema a
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imágenes/Esquema_A.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esquema A
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por divisor de tensión, se obtiene la función de transferencia del circuito,
+ que resulta ser: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H(s)=\frac{s\cdot C\cdot R}{s^{2}\cdot L\cdot C+s\cdot C\cdot R+1}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Teniendo en cuenta que 
+\begin_inset Formula $\frac{H(s)}{s}=Y(s)$
+\end_inset
+
+, donde 
+\begin_inset Formula $Y(s)$
+\end_inset
+
+ es la respuesta al escalón del sistema:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Entonces 
+\begin_inset Formula $y(t)=\frac{2\,\sqrt{C}\,R\,\sin\!\left(\frac{t\,\sqrt{4\,L-C\,R^{2}}}{2\,\sqrt{C}\,L}\right)\,\mathrm{e}^{-\frac{R\,t}{2\,L}}}{\sqrt{4\,L-C\,R^{2}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las mediciones arrojaron un 
+\begin_inset Formula $MP=1.56V$
+\end_inset
+
+, una frecuencia de oscilación de 44843.05 Hz y un tiempo de establecimiento
+ del 5% de 
+\begin_inset Formula $49.1$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+micro
+\end_layout
+
+\end_inset
+
+s.
+ Las mediciones fueron tomadas con una señal de entrada de 5V.
+\end_layout
+
+\begin_layout Subsection
+Esquema b
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imágenes/Esquema_B.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esquema b
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por divisor de tensión, se obtiene la función de transferencia del circuito,
+ que resulta ser: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H(s)=\frac{s^{2}\cdot L\cdot C+1}{s^{2}\cdot L\cdot C+s\cdot C\cdot R+1}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Teniendo en cuenta que 
+\begin_inset Formula $\frac{H(s)}{s}=Y(s)$
+\end_inset
+
+, donde 
+\begin_inset Formula $Y(s)$
+\end_inset
+
+ es la respuesta al escalón del sistema:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Entonces 
+\begin_inset Formula $y(t)=1-\frac{2\,\sqrt{C}\,R\,\sin\!\left(\frac{t\,\sqrt{4\,L-C\,R^{2}}}{2\,\sqrt{C}\,L}\right)\mathrm{e}^{-\frac{R\,t}{2\,L}}}{\sqrt{4L-CR^{2}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las mediciones arrojaron un 
+\begin_inset Formula $MP=1.58V$
+\end_inset
+
+, una frecuencia de oscilación de 45248.86 Hz y un tiempo de establecimiento
+ del 5% de 
+\begin_inset Formula $48,5$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+micro
+\end_layout
+
+\end_inset
+
+s.
+ Las mediciones fueron tomadas con una señal de entrada de 5V.
+\end_layout
+
+\begin_layout Subsection
+Esquema c
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imágenes/Esquema_C.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esquema c
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por divisor de tensión, se obtiene la función de transferencia del circuito,
+ que resulta ser: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H(s)=\frac{s^{2}\cdot L\cdot C}{s^{2}\cdot L\cdot C+s\cdot C\cdot R+1}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Teniendo en cuenta que 
+\begin_inset Formula $\frac{H(s)}{s}=Y(s)$
+\end_inset
+
+, donde 
+\begin_inset Formula $Y(s)$
+\end_inset
+
+ es la respuesta al escalón del sistema:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Entonces 
+\begin_inset Formula $y(t)=\mathrm{e}^{-\frac{R\,t}{2\,L}}\,\left(\cosh\!\left(\frac{t\,\sqrt{\frac{C\,R^{2}}{4}-L}}{\sqrt{C}\,L}\right)-\frac{\sqrt{C}\,R\,\sinh\!\left(\frac{t\,\sqrt{\frac{C\,R^{2}}{4}-L}}{\sqrt{C}\,L}\right)}{2\,\sqrt{\frac{C\,R^{2}}{4}-L}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las mediciones arrojaron un 
+\begin_inset Formula $MP=2.6V$
+\end_inset
+
+, una frecuencia de oscilación de 45146.72 Hz y un tiempo de establecimiento
+ del 5% de 
+\begin_inset Formula $42.7$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+micro
+\end_layout
+
+\end_inset
+
+s.
+ Las mediciones fueron tomadas con una señal de entrada de 5V.
 \end_layout
 
 \end_body
