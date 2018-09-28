@@ -131,6 +131,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/Inductancia.png
+	scale 40
 
 \end_inset
 
@@ -168,8 +169,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/fase.png
+	scale 40
 
 \end_inset
 
@@ -177,6 +180,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -201,8 +205,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/Q.png
+	scale 40
 
 \end_inset
 
@@ -210,6 +216,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -233,8 +240,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/Resistencia.png
+	scale 40
 
 \end_inset
 
@@ -267,7 +276,7 @@ a
 \end_layout
 
 \begin_layout Subsection
-Nuevo modelo para el inductor
+Modelo para el inductor no ideal
 \end_layout
 
 \begin_layout Standard
@@ -316,6 +325,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/nuevo_modelo_inductor.png
+	scale 110
 
 \end_inset
 
@@ -525,16 +535,7 @@ Sabiendo que la frecuencia de resonancia del circuito resulta ser
 \end_inset
 
 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-ohm
-\end_layout
-
+\begin_inset Formula $\Omega$
 \end_inset
 
 podemos despejar la relación entre los componentes al anular la parte imaginaria
@@ -854,21 +855,13 @@ De aquí, fijando
 \begin_inset Formula $C\text{=10pF},$
 \end_inset
 
-se pueden determinar 
+(un valor del todo razonable porque la capacitancia comienza a notarse a
+ muy altas frecuencias, se pueden determinar 
 \begin_inset Formula $R=286$
 \end_inset
 
 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-ohm
-\end_layout
-
+\begin_inset Formula $\Omega$
 \end_inset
 
 , 
@@ -904,7 +897,16 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename imagenes/comparacion_con_modelo.PNG
+	filename imagenes/impedancia calculada.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename imagenes/impedancia_medida.png
 
 \end_inset
 
@@ -955,6 +957,213 @@ par
 \begin_layout Standard
 Luego de contrastar, se acepta el modelo propuesto como un modelo válido.
  
+\end_layout
+
+\begin_layout Subsection
+Modelo para el capacitor no ideal
+\end_layout
+
+\begin_layout Standard
+Se plantea un nuevo modelo de capacitor para lograr reproducir de una manera
+ más precisa la curvas obtenidas anteriormente.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El modelo propuesto es el siguiente:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/nuevo_model_capacitor.png
+	scale 110
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modelo del capacitor real
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De donde se plantea la impedancia equivalente Z como:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Z=\frac{(R_{1}+s\cdot L)\cdot(s\cdot C\cdot R_{2}+1)+R_{2}}{s\cdot C\cdot R_{2}+1}=\frac{{s^{2}\cdot C\cdot R_{2}\cdot L+s\cdot(L+C\cdot R_{2}\cdot R_{1})+R_{1}+R_{2}}}{s\cdot C\cdot R_{2}+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Eligiendo 
+\begin_inset Formula $A=C\cdot R_{2}\cdot L$
+\end_inset
+
+, 
+\begin_inset Formula $B=L+C\cdot R_{2}\cdot R_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $C=R_{1}+R_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $D=C\cdot R_{2}$
+\end_inset
+
+ se reduce la expresión anterior a una más sencilla y compleja, con su parte
+ real y su parte imaginaria explicitadas, de modo tal que 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Z=\frac{(B\cdot D-A)\cdot w^{2}+C}{w^{2}\cdot D^{2}+1}+j\cdot\frac{w^{3}\cdot D\cdot A+w\cdot(B-D\cdot C)+C}{w^{2}\cdot D^{2}+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
