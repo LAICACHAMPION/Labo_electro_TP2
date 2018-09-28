@@ -125,8 +125,11 @@ En esta secci
 \backslash
 'on, estudiaremos la respuesta al escal
 \backslash
-'on de un circuito RLC serie, observando la salida en el capacitor, tal
- como ilustra el siguiente esquema:
+'on de un circuito RLC serie, observando la salida en el capacitor, utilizando
+ un 
+\backslash
+textit{buffer} para aislar la entrada de la salida, tal como ilustra el
+ siguiente esquema:
 \end_layout
 
 \end_inset
@@ -163,7 +166,12 @@ centering
 \backslash
 begin{circuitikz} 		
 \backslash
-draw 		
+draw 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		(-5.5,7) node[buffer] (buff) {} 	
 \end_layout
 
 \begin_layout Plain Layout
@@ -183,7 +191,17 @@ draw
 
 \begin_layout Plain Layout
 
-		to [R, l_=$R$, *-o] (-5, 7) node[left] {$V_{in}$} 	
+		to [R, l_=$R$, *-o] (-5, 7) to (buff.out)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(buff.in) to [short, -o] (-7.5,7)node[left] {$V_{in}$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
 \end_layout
 
 \begin_layout Plain Layout
@@ -281,6 +299,28 @@ through hole
 .
 \end_layout
 
+\begin_layout Subsection
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+An
+\backslash
+'alisis matem
+\backslash
+'atico
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Respuesta en frecuencia
+\end_layout
+
 \begin_layout Standard
 Efectuando un divisor de 
 \begin_inset ERT
@@ -312,7 +352,28 @@ H(s)=\frac{1}{s^{2}\cdot LC+s\cdot RC+1}\label{eq:2-h}
 \end_layout
 
 \begin_layout Standard
-Por lo tanto, para obtener la respuesta al 
+Esto corresponde a un pasabajos de segundo orden, y dado que 
+\begin_inset Formula $\xi<0.7$
+\end_inset
+
+ ambos polos son complejos conjugados y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+deber
+\backslash
+'ia
+\end_layout
+
+\end_inset
+
+ observarse un sobrepico en la transferencia.
+\end_layout
+
+\begin_layout Subsubsection
+Respuesta al 
 \begin_inset ERT
 status open
 
@@ -325,7 +386,37 @@ escal
 
 \end_inset
 
- basta calcular la 
+
+\end_layout
+
+\begin_layout Standard
+Para obtener 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+anal
+\backslash
+'iticamente 
+\end_layout
+
+\end_inset
+
+la respuesta al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+escal
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+, basta calcular la 
 \begin_inset ERT
 status open
 
@@ -428,15 +519,15 @@ ref{eq:2-h}
 \end_inset
 
 ) las constantes 
-\begin_inset Formula $\omega_{0}=\sqrt{\frac{1}{LC}}$
+\begin_inset Formula $\omega_{0}=\sqrt{\frac{1}{LC}}=288,675\frac{rad}{s}\sim45.944kHz$
 \end_inset
 
 , 
-\begin_inset Formula $\alpha=\frac{R}{2L}$
+\begin_inset Formula $\alpha=\frac{R}{2L}=60,000\frac{rad}{s}$
 \end_inset
 
  y 
-\begin_inset Formula $\omega_{d}=\sqrt{\omega_{0}^{2}-\alpha^{2}}$
+\begin_inset Formula $\omega_{d}=\sqrt{\omega_{0}^{2}-\alpha^{2}}=282,370\frac{rad}{s}\sim44.941kHz$
 \end_inset
 
  (que sabemos que es real porque el sistema 
@@ -501,7 +592,7 @@ status open
 
 
 \backslash
-begin{equation}
+begin{equation*}
 \end_layout
 
 \begin_layout Plain Layout
@@ -516,6 +607,13 @@ infty}^{t}h(t)
 \backslash
 ,dt=
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
 frac{
 \backslash
 omega_{0}^{2}}{
@@ -523,6 +621,13 @@ omega_{0}^{2}}{
 omega_{d}}
 \backslash
 cdot
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+left(
 \backslash
 frac{e^{-
 \backslash
@@ -532,7 +637,14 @@ alpha^{2}+
 \backslash
 omega_{d}^{2}}
 \backslash
+right)
+\backslash
 cdot
+\end_layout
+
+\begin_layout Plain Layout
+
+	
 \backslash
 left(
 \backslash
@@ -559,7 +671,7 @@ right)
 
 
 \backslash
-end{equation}
+end{equation*}
 \end_layout
 
 \end_inset
@@ -590,13 +702,493 @@ expresi
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-y(t)=e^{-\alpha t}\cdot\left(\frac{\alpha}{\omega_{d}}\sin{(\omega_{d}t)}+\cos{(\omega_{d}t)}\right)
-\]
+\begin{equation}
+y(t)=e^{-\alpha t}\cdot\left(\frac{\alpha}{\omega_{d}}\sin{(\omega_{d}t)}+\cos{(\omega_{d}t)}\right)\label{eq:2-rtaesc}
+\end{equation}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Para obtener la amplitud 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+m
+\backslash
+'axima
+\end_layout
+
+\end_inset
+
+ de la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+oscilaci
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+, obtenemos el tiempo en el que esto sucede derivando la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ecuaci
+\backslash
+'on (
+\backslash
+ref{eq:2-rtaesc})
+\end_layout
+
+\end_inset
+
+, de donde resulta que 
+\begin_inset Formula $t_{A_{MAX}}=\frac{atan(\nicefrac{\alpha}{\omega_{d}})}{\omega_{d}}\sim40.7\mu s$
+\end_inset
+
+.
+ En cuanto al tiempo de establecimiento, lo consideramos como 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+aqu
+\backslash
+'el
+\end_layout
+
+\end_inset
+
+ en el cual la amplitud de la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+oscilaci
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ es el 5% de la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+m
+\backslash
+'axima
+\end_layout
+
+\end_inset
+
+, y se puede obtener realizando resolviendo
+\begin_inset Formula $\frac{y(t_{5\%})}{y(0)}=0.05$
+\end_inset
+
+, donde tomamos el 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+t
+\backslash
+'ermino
+\end_layout
+
+\end_inset
+
+ sinusoidal como 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+id
+\backslash
+'entico
+\end_layout
+
+\end_inset
+
+ a si estuviera evaluado en 
+\begin_inset Formula $t_{A_{MAX}}$
+\end_inset
+
+.
+ Por lo tanto:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A_{MAX}=e^{-\alpha t_{A_{MAX}}}\cdot\left(\frac{\alpha}{\omega_{d}}\sin{(\omega_{d}t_{A_{MAX}})}+\cos{(\omega_{d}t_{A_{MAX}})}\right)=0.0871\cdot1.021=0.089\label{eq:2-amax}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+t_{5\%}=\frac{1}{\alpha}\ln{\left(\frac{1.021}{0.05}\right)}=50.3\mu s\label{eq:2-t5}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cabe aclarar que la amplitud se expresa como adimensional porque depende
+ de la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+tensi
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ de entrada: esto representa 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+s
+\backslash
+'olo
+\end_layout
+
+\end_inset
+
+ la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+proporci
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ respecto de este valor (o lo que es lo mismo, la salida en volts cuando
+ la entrada es un 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+escal
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ de 
+\begin_inset Formula $1V$
+\end_inset
+
+, y para obtener la amplitud efectiva se debe multiplicar por 
+\begin_inset Formula $V_{in}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Efecto de distintos valores de 
+\begin_inset Formula $R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Habiendo ya obtenido las expresiones de la 
+\begin_inset Formula $\omega_{0}$
+\end_inset
+
+y 
+\begin_inset Formula $\alpha$
+\end_inset
+
+de este circuito, surge a simple vista que la frecuencia de resonancia no
+ se ve afectada por el valor de la resistencia, sino 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+s
+\backslash
+'olo
+\end_layout
+
+\end_inset
+
+ el amortiguamiento, y con 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'el
+\end_layout
+
+\end_inset
+
+, el factor de calidad 
+\begin_inset Formula $Q=\frac{1}{2\xi}=\frac{\omega_{0}L}{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como el circuito 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+est
+\backslash
+'a cr
+\backslash
+'iticamente
+\end_layout
+
+\end_inset
+
+ amortiguado cuando 
+\begin_inset Formula $Q=\frac{1}{2}$
+\end_inset
+
+, la resistencia que cumple esta 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+condici
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ es 
+\begin_inset Formula $R_{C}=2\cdot\omega_{0}\cdot L\sim577\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por otro lado, si esta resistencia fuese de 0
+\begin_inset Formula $\Omega$
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+tendr
+\backslash
+'iamos
+\end_layout
+
+\end_inset
+
+ un circuito resonante ideal, y el amortiguamiento del circuito 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+deber
+\backslash
+'ia
+\end_layout
+
+\end_inset
+
+ ser nulo.
+ Desde ya, en la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+pr
+\backslash
+'actica intervendr
+\backslash
+'an
+\end_layout
+
+\end_inset
+
+ impedanicas como las de los cables, de la 
+\emph on
+protoboard
+\emph default
+ y las 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+par
+\backslash
+'asitas
+\end_layout
+
+\end_inset
+
+ del capacitor y sobre todo de la bobina, con lo cual 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+s
+\backslash
+'olo
+\end_layout
+
+\end_inset
+
+ podemos esperar que el tiempo de establecimiento del transitorio se vea
+ reducido significativamente.
+\end_layout
+
+\begin_layout Standard
+En cambio, si la resistencia supera 
+\begin_inset Formula $R_{C}$
+\end_inset
+
+, el sistema se 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+encontrar
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+ sobreamortiguado, y esperamos observar que en la respuesta al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+escal
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ la salida no oscile, pero que el tiempo de establecimiento de la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+se
+\backslash
+~nal
+\end_layout
+
+\end_inset
+
+ sea mayor que para 
+\begin_inset Formula $R_{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+An
+\backslash
+'alisis
+\end_layout
+
+\end_inset
+
+ de resultados
+\end_layout
+
+\begin_layout Subsubsection
+Respuesta en frecuencia
+\end_layout
+
+\begin_layout Standard
+La frecuencia de resonancia medida, consi
+\end_layout
+
+\begin_layout Subsubsection
+Respuesta al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+escal
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La frecuencia de resonanci
 \end_layout
 
 \end_body

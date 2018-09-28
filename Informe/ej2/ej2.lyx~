@@ -65,8 +65,8 @@
 \paperfontsize default
 \spacing single
 \use_hyperref false
-\papersize default
-\use_geometry false
+\papersize a4paper
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -90,6 +90,10 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -107,11 +111,491 @@
 
 \begin_body
 
-\begin_layout Subsection
+\begin_layout Section
 Circuito RLC serie
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+En esta secci
+\backslash
+'on, estudiaremos la respuesta al escal
+\backslash
+'on de un circuito RLC serie, observando la salida en el capacitor, tal
+ como ilustra el siguiente esquema:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+	
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{circuitikz} 		
+\backslash
+draw 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		(-1, 5.5)  node[ground] {} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		to [C, l_=$C$] (-1, 7)  		
+\end_layout
+
+\begin_layout Plain Layout
+
+		to [cute inductor, l_=$L$, *-*] (-3, 7)  		
+\end_layout
+
+\begin_layout Plain Layout
+
+		to [R, l_=$R$, *-o] (-5, 7) node[left] {$V_{in}$} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		(-1, 7) to [short] (0.5,7) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		to  [open,v^=$V_{out}$,o-o]  (0.5,5.5) node[ground]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+	 ;
+\backslash
+end{circuitikz} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esquema del circuito
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De acuerdo a lo establecido por la consigna, los valores de la resistencia,
+ el capacitor y el inductor fueron de 
+\begin_inset Formula $R=120\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $C=12nF$
+\end_inset
+
+ y 
+\begin_inset Formula $L=1mH$
+\end_inset
+
+.
+ Con este valor de resistencia, el factor 
+\begin_inset Formula $\xi$
+\end_inset
+
+ de este circuito es de 
+\begin_inset Formula $\xi=\frac{R}{2}\cdot\sqrt{\frac{C}{L}}=0.208$
+\end_inset
+
+, lo 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+m
+\backslash
+'as
+\end_layout
+
+\end_inset
+
+ cercano que se pudo obtener a los 0.19 que 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ped
+\backslash
+'ia
+\end_layout
+
+\end_inset
+
+ la consigna con valores comerciales de resistencias 
+\emph on
+through hole
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Efectuando un divisor de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+tensi
+\backslash
+'on y reagrupando convenientemente, podemos obtener la funci
+\backslash
+'on transferencia de este sistema:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H(s)=\frac{1}{s^{2}\cdot LC+s\cdot RC+1}\label{eq:2-h}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo tanto, para obtener la respuesta al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+escal
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ basta calcular la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+convoluci
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ de 
+\begin_inset Formula $u(t)$
+\end_inset
+
+ con la respuesta al impulso del sistema, es decir la antitransformada de
+ Laplace de la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+funci
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ transferencia.
+ En primer lugar, notamos que como 
+\begin_inset Formula $\xi=0.19$
+\end_inset
+
+ (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+seg
+\backslash
+'un
+\end_layout
+
+\end_inset
+
+ lo establecido por la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+c
+\backslash
+'atedra
+\end_layout
+
+\end_inset
+
+), esta 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+funci
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ presenta dos polos complejos conjugados.
+ Por lo tanto, reemplazando en la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+expresi
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ de (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{eq:2-h}
+\end_layout
+
+\end_inset
+
+) las constantes 
+\begin_inset Formula $\omega_{0}=\sqrt{\frac{1}{LC}}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha=\frac{R}{2L}$
+\end_inset
+
+ y 
+\begin_inset Formula $\omega_{d}=\sqrt{\omega_{0}^{2}-\alpha^{2}}$
+\end_inset
+
+ (que sabemos que es real porque el sistema 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+est
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+ subamortiguado, ya que 
+\begin_inset Formula $\xi<1$
+\end_inset
+
+), obtenemos que:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H(s)=\frac{1}{LC}\cdot\left(\frac{1}{s^{2}+\frac{R}{L}\cdot s+\nicefrac{1}{LC}}\right)=\omega_{0}^{2}\cdot\left(\frac{1}{(s^{2}+2\alpha\cdot s+\alpha^{2})+(\omega_{0}^{2}-\alpha^{2})}\right)=\frac{\omega_{0}^{2}}{\omega_{d}}\cdot\left(\frac{\omega_{d}}{(s+\alpha)^{2}+\omega_{d}^{2}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo tanto, utilizando las propiedades de desplazamiento en frecuencia
+ y linealidad, resulta que 
+\begin_inset Formula $h(t)=\frac{\omega_{0}^{2}}{\omega_{d}}\cdot e^{-\alpha t}\cdot\sin{(\omega_{d}t)}$
+\end_inset
+
+.
+ Por lo tanto, la respuesta al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+escal
+\backslash
+'on del sistema es:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+	y(t)=h
+\backslash
+ast u(t)=
+\backslash
+int_{-
+\backslash
+infty}^{t}h(t)
+\backslash
+,dt=
+\backslash
+frac{
+\backslash
+omega_{0}^{2}}{
+\backslash
+omega_{d}}
+\backslash
+cdot
+\backslash
+frac{e^{-
+\backslash
+alpha t}}{
+\backslash
+alpha^{2}+
+\backslash
+omega_{d}^{2}}
+\backslash
+cdot
+\backslash
+left(
+\backslash
+alpha
+\backslash
+cdot
+\backslash
+sin{(
+\backslash
+omega_{d}t)}+
+\backslash
+omega_{d}
+\backslash
+cdot
+\backslash
+cos{(
+\backslash
+omega_{d}t)}
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pero como 
+\begin_inset Formula $\omega_{d}^{2}=\omega_{0}^{2}-\alpha^{2}$
+\end_inset
+
+, esta 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+expresi
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ puede simplificarse a:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y(t)=e^{-\alpha t}\cdot\left(\frac{\alpha}{\omega_{d}}\sin{(\omega_{d}t)}+\cos{(\omega_{d}t)}\right)
+\]
+
+\end_inset
+
 
 \end_layout
 
