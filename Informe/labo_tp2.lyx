@@ -197,7 +197,27 @@ filename "ej2/ej2.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
+filename "ej3/ej3.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
 filename "ej4/ej4.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "ej5/ej5.lyx"
 
 \end_inset
 

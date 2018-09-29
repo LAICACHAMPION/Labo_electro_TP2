@@ -148,7 +148,9 @@ begin{equation}
 
 Q=
 \backslash
-frac{W_0L}{R}
+frac{
+\backslash
+omega_0L}{R}
 \end_layout
 
 \begin_layout Plain Layout
@@ -167,7 +169,9 @@ begin{equation}
 
 \begin_layout Plain Layout
 
-W_0=
+
+\backslash
+omega_0=
 \backslash
 frac{1}{
 \backslash
@@ -202,7 +206,7 @@ Medición del factor de calidad
 
 \begin_layout Standard
 El factor de calidad en los casos de los filtros pasa banda y rechaza banda
- se mide:
+ se mide indirectamente a partir de los siguientes datos:
 \end_layout
 
 \begin_layout Standard
@@ -247,8 +251,50 @@ $f_0$
 
 \end_inset
 
- es la frecuencia de resonancia del circuito y f1 , f2 son las frecuencia
- en la que la transferencia cae 3 db respecto del sobre pico.
+ es la frecuencia de resonancia del circuito y 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{2}$
+\end_inset
+
+ son las frecuencias en la que la transferencia cae 3dB respecto del sobrepico.
+\end_layout
+
+\begin_layout Standard
+El factor de calidad en los casos de los filtros pasa altos y pasa bajos,
+ se mide en cambio como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+Q=10^{
+\backslash
+frac{H(f_0)}{20}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

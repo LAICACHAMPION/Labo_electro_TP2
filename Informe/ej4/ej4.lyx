@@ -255,23 +255,10 @@ Las mediciones arrojaron un
 
 , una frecuencia de oscilación de 44843.05 Hz y un tiempo de establecimiento
  del 5% de 
-\begin_inset Formula $49.1$
+\begin_inset Formula $49.1\mu s$
 \end_inset
 
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-micro
-\end_layout
-
-\end_inset
-
-s.
+.
  Las mediciones fueron tomadas con una señal de entrada de 5V.
 \end_layout
 
@@ -414,23 +401,10 @@ Las mediciones arrojaron un
 
 , una frecuencia de oscilación de 45248.86 Hz y un tiempo de establecimiento
  del 5% de 
-\begin_inset Formula $48,5$
+\begin_inset Formula $48,5\mu s$
 \end_inset
 
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-micro
-\end_layout
-
-\end_inset
-
-s.
+.
  Las mediciones fueron tomadas con una señal de entrada de 5V.
 \end_layout
 
@@ -573,23 +547,10 @@ Las mediciones arrojaron un
 
 , una frecuencia de oscilación de 45146.72 Hz y un tiempo de establecimiento
  del 5% de 
-\begin_inset Formula $42.7$
+\begin_inset Formula $42.7\mu s$
 \end_inset
 
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-micro
-\end_layout
-
-\end_inset
-
-s.
+.
  Las mediciones fueron tomadas con una señal de entrada de 5V.
 \end_layout
 

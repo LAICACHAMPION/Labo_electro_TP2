@@ -242,7 +242,7 @@ par
 
 \begin_layout Standard
 Entonces 
-\begin_inset Formula $y(t)=R\cdot\left(1-\mathrm{e}^{-\frac{R\cdot t}{2\cdot L}}\cdot\left(\cosh\left(\frac{t\,\sqrt{\frac{C\,R^{2}}{4}-L}}{\sqrt{C}\cdot L}\right)+\frac{\sqrt{C}\cdot R\cdot\sinh\left(\frac{t\,\sqrt{\frac{C\cdot R^{2}}{4}-L}}{\sqrt{C}\,L}\right)}{2\,\sqrt{\frac{C\cdot R^{2}}{4}-L}}\right)\right)$
+\begin_inset Formula $y(t)=\frac{2\,\sqrt{C}\,R\,\sin\!\left(\frac{t\,\sqrt{4\,L-C\,R^{2}}}{2\,\sqrt{C}\,L}\right)\,\mathrm{e}^{-\frac{R\,t}{2\,L}}}{\sqrt{4\,L-C\,R^{2}}}$
 \end_inset
 
 
