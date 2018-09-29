@@ -276,6 +276,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Imágenes/respuesta_a.png
+	scale 30
 
 \end_inset
 
@@ -314,6 +315,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Imágenes/t2_e4_a_2.bmp
+	scale 30
 
 \end_inset
 
@@ -615,6 +617,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Imágenes/respuesta_b.png
+	scale 30
 
 \end_inset
 
@@ -653,6 +656,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Imágenes/t2_e4_b_4.bmp
+	scale 30
 
 \end_inset
 
@@ -961,6 +965,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Imágenes/respuesta_c.png
+	scale 30
 
 \end_inset
 
@@ -1003,6 +1008,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Imágenes/t2_e4_c_7.bmp
+	scale 30
 
 \end_inset
 

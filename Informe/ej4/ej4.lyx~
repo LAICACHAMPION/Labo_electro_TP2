@@ -1128,7 +1128,12 @@ par
 \end_layout
 
 \begin_layout Standard
-El tiempo de establecimiento total es 
+El tiempo de establecimiento total se obtiene de la misma manera que en
+ el ejercicio 2, por lo que 
+\begin_inset Formula $Te\text{=49.9\mu s}$
+\end_inset
+
+ .
 \end_layout
 
 \end_body

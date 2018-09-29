@@ -1094,32 +1094,39 @@ end{centering}
 \end_layout
 
 \begin_layout Standard
-Eligiendo 
-\begin_inset Formula $A=C\cdot R_{2}\cdot L$
+Se piensa que 
+\begin_inset Formula $R_{2}$
 \end_inset
 
-, 
-\begin_inset Formula $B=L+C\cdot R_{2}\cdot R_{1}$
-\end_inset
+ tomará un valor muy grande y por ende se lo desprecia.
+\end_layout
 
-, 
-\begin_inset Formula $C=R_{1}+R_{2}$
-\end_inset
+\begin_layout Standard
+Se grafica el módulo de la impedancia para este modelo y se lo compara con
+ la impedancia real, la medida.
+\end_layout
 
-, 
-\begin_inset Formula $D=C\cdot R_{2}$
-\end_inset
-
- se reduce la expresión anterior a una más sencilla y compleja, con su parte
- real y su parte imaginaria explicitadas, de modo tal que 
-\begin_inset ERT
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modelo no ideal
+\end_layout
+
+\end_inset
 
 
-\backslash
-par
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -1128,14 +1135,17 @@ par
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
+\begin_inset Float figure
+placement H
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
 
-
-\backslash
-begin{centering}
+\begin_layout Plain Layout
+Mediciones tomadas
 \end_layout
 
 \end_inset
@@ -1143,22 +1153,8 @@ begin{centering}
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Formula $Z=\frac{(B\cdot D-A)\cdot w^{2}+C}{w^{2}\cdot D^{2}+1}+j\cdot\frac{w^{3}\cdot D\cdot A+w\cdot(B-D\cdot C)+C}{w^{2}\cdot D^{2}+1}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
 \begin_layout Plain Layout
 
-
-\backslash
-end{centering}
 \end_layout
 
 \end_inset
