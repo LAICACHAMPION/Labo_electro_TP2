@@ -201,7 +201,8 @@ Medición del factor de calidad
 \end_layout
 
 \begin_layout Standard
-El factor de calidad se lo mide de la siguiente manera:
+El factor de calidad en los casos de los filtros pasa banda y rechaza banda
+ se mide:
 \end_layout
 
 \begin_layout Standard
@@ -251,6 +252,41 @@ $f_0$
 \end_layout
 
 \begin_layout Standard
+El factor de calidad en los casos de los filtros pasa altso y pasa bajos,
+ se mide:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+Q=10^{
+\backslash
+frac{H(f_0)}{20}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 wide false
@@ -259,8 +295,9 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="4">
+<lyxtabular version="3" rows="6" columns="5">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -284,7 +321,7 @@ status open
 
 \begin_layout Plain Layout
 
-$W_0$
+$f_0$
 \end_layout
 
 \end_inset
@@ -306,6 +343,25 @@ status open
 $
 \backslash
 Delta f$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$H(f_0)$
 \end_layout
 
 \end_inset
@@ -363,6 +419,15 @@ Ej4)A
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -401,6 +466,15 @@ Ej4)B
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -434,7 +508,16 @@ Ej4)C
 \begin_inset Text
 
 \begin_layout Plain Layout
-42KHz
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.9dB
 \end_layout
 
 \end_inset
@@ -443,7 +526,7 @@ Ej4)C
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.14
+2.21
 \end_layout
 
 \end_inset
@@ -472,7 +555,16 @@ Ej2
 \begin_inset Text
 
 \begin_layout Plain Layout
-27.620KHz
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.2dB
 \end_layout
 
 \end_inset
@@ -481,7 +573,7 @@ Ej2
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.7
+2.1
 \end_layout
 
 \end_inset
@@ -502,6 +594,15 @@ Teorico
 
 \begin_layout Plain Layout
 46KHz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
 \end_layout
 
 \end_inset
