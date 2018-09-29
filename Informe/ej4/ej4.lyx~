@@ -242,7 +242,93 @@ par
 
 \begin_layout Standard
 Entonces 
-\begin_inset Formula $y(t)=\frac{2\,\sqrt{C}\,R\,\sin\!\left(\frac{t\,\sqrt{4\,L-C\,R^{2}}}{2\,\sqrt{C}\,L}\right)\,\mathrm{e}^{-\frac{R\,t}{2\,L}}}{\sqrt{4\,L-C\,R^{2}}}$
+\begin_inset Formula $y(t)=\frac{2\cdot\sqrt{C}\cdot R\cdot\sin\left(\frac{t\cdot\sqrt{4\cdot L-C\cdot R^{2}}}{2\cdot\sqrt{C}\cdot L}\right)\cdot\mathrm{e}^{-\frac{R\,t}{2\,L}}}{\sqrt{4\cdot L-C\cdot R^{2}}}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La respuesta al escalón teórica resultante por lo tanto es: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imágenes/respuesta_a.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta al escalón teórica
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La respuesta al escalón medida fue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imágenes/t2_e4_a_2.bmp
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta al escalón medida
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -255,10 +341,11 @@ Las mediciones arrojaron un
 
 , una frecuencia de oscilación de 44843.05 Hz y un tiempo de establecimiento
  del 5% de 
-\begin_inset Formula $49.1$
+\begin_inset Formula $49.1\mu s$
 \end_inset
 
-
+.
+ Las mediciones fueron tomadas con una señal de entrada de 5V.
 \begin_inset ERT
 status open
 
@@ -266,13 +353,110 @@ status open
 
 
 \backslash
-micro
+par
 \end_layout
 
 \end_inset
 
-s.
- Las mediciones fueron tomadas con una señal de entrada de 5V.
+
+\end_layout
+
+\begin_layout Standard
+Para encontrar la amplitud máxima teórica, se toma la respuesta al escalón,
+ se la deriva usando el comando diff(h,t) de matlab y se busca un cero de
+ la derivada.
+ este cero resulta ser 
+\begin_inset Formula $t=4.8214\cdot10^{-6}s$
+\end_inset
+
+, que arroja un valor de sobrepico de 0.3113V.
+ Debe tenerse en cuenta que en realidad el valor de sobrepico depende de
+ la tensión de entrada, habiendo asumido un valor de 1 V de entrada para
+ los cálculos.
+ En el caso en que se tuviera otro valor de tensión de entrada 
+\begin_inset Formula $V_{0}$
+\end_inset
+
+, simplemente se tendrá que multiplicar al valor anterior por el factor
+ escalante 
+\begin_inset Formula $V_{0}$
+\end_inset
+
+.
+ Como en nuestro caso 
+\begin_inset Formula $V_{0}=5V$
+\end_inset
+
+ para aumentar la SNR, 
+\begin_inset Formula $MP_{teórico}\text{=1.55V}$
+\end_inset
+
+, valor que concuerda con lo medido.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La frecuencia de oscilación teórica surge de la fórmula analítica de la
+ respuesta al escalón como el factor
+\begin_inset Formula $\frac{\sqrt{4\cdot L-C\cdot R^{2}}}{2\cdot\sqrt{C}\cdot L}$
+\end_inset
+
+ del interior del seno.
+ Se llega a que 
+\begin_inset Formula $f_{trans}$
+\end_inset
+
+ = 44840.72 Hz, lo cual coincide correctamente con lo medido.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La exponencial es la que modula la amplitud de la señal anterior, por lo
+ que resolviendo 
+\begin_inset Formula $\mathrm{e}^{-\frac{R\,t}{2\,L}}\text{=0.05}$
+\end_inset
+
+ se obtiene el tiempo de establecimiento del 5% 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $Te\text{=}49.9\mu s$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -305,10 +489,6 @@ Esquema b
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -401,23 +581,10 @@ par
 
 \begin_layout Standard
 Entonces 
-\begin_inset Formula $y(t)=1-\frac{2\,\sqrt{C}\,R\,\sin\!\left(\frac{t\,\sqrt{4\,L-C\,R^{2}}}{2\,\sqrt{C}\,L}\right)\mathrm{e}^{-\frac{R\,t}{2\,L}}}{\sqrt{4L-CR^{2}}}$
+\begin_inset Formula $y(t)=1-\frac{2\,\sqrt{C}\,R\,\sin\!\left(\frac{t\,\sqrt{4\,L-C\,R^{2}}}{2\,\sqrt{C}\,L}\right)\,\mathrm{e}^{-\frac{R\,t}{2\,L}}}{\sqrt{4\,L-C\,R^{2}}}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Las mediciones arrojaron un 
-\begin_inset Formula $MP=1.58V$
-\end_inset
-
-, una frecuencia de oscilación de 45248.86 Hz y un tiempo de establecimiento
- del 5% de 
-\begin_inset Formula $48,5$
-\end_inset
-
-
+ 
 \begin_inset ERT
 status open
 
@@ -425,13 +592,213 @@ status open
 
 
 \backslash
-micro
+par
 \end_layout
 
 \end_inset
 
-s.
+
+\end_layout
+
+\begin_layout Standard
+La respuesta al escalón teórica resultante por lo tanto es: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imágenes/respuesta_b.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta al escalón teórica
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La respuesta al escalón medida fue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imágenes/t2_e4_b_4.bmp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta al escalón medida
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las mediciones arrojaron un 
+\begin_inset Formula $MP=1.56V$
+\end_inset
+
+, una frecuencia de oscilación de 45248.86 Hz y un tiempo de establecimiento
+ del 5% de 
+\begin_inset Formula $48,5\mu s$
+\end_inset
+
+.
  Las mediciones fueron tomadas con una señal de entrada de 5V.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se calcula el 
+\begin_inset Formula $MP_{teórico}\text{=3.44V}$
+\end_inset
+
+de la misma forma que para el esquema anterior, con el punto máximo en 
+\begin_inset Formula $t=4.8214\cdot10^{-6}$
+\end_inset
+
+s, un sobrepico para una tensión de entrada de 1V de 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.6887
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+V, y la tensión de entrada utilizada al momento de medir de
+\begin_inset Formula $V_{0}=5V$
+\end_inset
+
+.
+ Lo medido no concuerda con lo teórico, por lo cual se asume hubo un error
+ al medir o en el traspaso de datos.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La frecuencia de oscilación teórica surge de la fórmula analítica de la
+ respuesta al escalón como el factor
+\begin_inset Formula $\frac{\sqrt{4\cdot L-C\cdot R^{2}}}{2\cdot\sqrt{C}\cdot L}$
+\end_inset
+
+ del interior del seno.
+ Es importante aclarar que es lógico que este valor sea igual que para la
+ configuración anterior porque se trata del mismo circuito.
+ Se llega a que 
+\begin_inset Formula $f_{trans}$
+\end_inset
+
+ = 44840.72 Hz, lo cual coincide correctamente con lo medido.
+ Sin embarjo, este valor es más lejano al medido que para el esquema anterior.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como el factor modulante para este esquema es igual al anterior, se obtiene
+ que el tiempo de establecimiento del 5% teórico es 
+\begin_inset Formula $Te\text{=49.9\mu s}$
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -564,6 +931,96 @@ Entonces
 \end_inset
 
 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La respuesta al escalón teórica resultante por lo tanto es: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imágenes/respuesta_c.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta al escalón teórica
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La respuesta al escalón medida fue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imágenes/t2_e4_c_7.bmp
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta al escalón medida
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -573,10 +1030,11 @@ Las mediciones arrojaron un
 
 , una frecuencia de oscilación de 45146.72 Hz y un tiempo de establecimiento
  del 5% de 
-\begin_inset Formula $42.7$
+\begin_inset Formula $42.7\mu s$
 \end_inset
 
-
+.
+ Las mediciones fueron tomadas con una señal de entrada de 5V.
 \begin_inset ERT
 status open
 
@@ -584,13 +1042,93 @@ status open
 
 
 \backslash
-micro
+par
 \end_layout
 
 \end_inset
 
-s.
- Las mediciones fueron tomadas con una señal de entrada de 5V.
+
+\end_layout
+
+\begin_layout Standard
+Se calcula el 
+\begin_inset Formula $MP_{teórico}\text{=}$
+\end_inset
+
+2.79 de la misma forma que para el esquema anterior, con el punto máximo
+ en 
+\begin_inset Formula $t=9.92\cdot10^{-6}$
+\end_inset
+
+s, un sobrepico para una tensión de entrada de 1V de 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+5589V, y la tensión de entrada utilizada al momento de medir de
+\begin_inset Formula $V_{0}=5V$
+\end_inset
+
+.
+ Esto coincide con los valores medidos.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La frecuencia de oscilación se calcula de la misma forma que en el ejercicio
+ 2, obtiéndose 
+\begin_inset Formula $f_{trans}$
+\end_inset
+
+ = 44840.72 Hz.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El tiempo de establecimiento total es 
 \end_layout
 
 \end_body
