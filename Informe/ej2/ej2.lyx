@@ -322,6 +322,22 @@ Respuesta en frecuencia
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{sssection:2-calc-rtafrec}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Efectuando un divisor de 
 \begin_inset ERT
 status open
@@ -603,16 +619,20 @@ ast u(t)=
 \backslash
 int_{-
 \backslash
-infty}^{t}h(t)
+infty}^{t}h(
 \backslash
-,dt=
+tau)
+\backslash
+,d
+\backslash
+tau=
 \backslash
 
 \end_layout
 
 \begin_layout Plain Layout
 
-	
+	1-
 \backslash
 frac{
 \backslash
@@ -703,7 +723,7 @@ expresi
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-y(t)=e^{-\alpha t}\cdot\left(\frac{\alpha}{\omega_{d}}\sin{(\omega_{d}t)}+\cos{(\omega_{d}t)}\right)\label{eq:2-rtaesc}
+y(t)=1-e^{-\alpha t}\cdot\left(\frac{\alpha}{\omega_{d}}\sin{(\omega_{d}t)}+\cos{(\omega_{d}t)}\right)\label{eq:2-rtaesc}
 \end{equation}
 
 \end_inset
@@ -754,11 +774,93 @@ ref{eq:2-rtaesc})
 \end_inset
 
 , de donde resulta que 
-\begin_inset Formula $t_{A_{MAX}}=\frac{atan(\nicefrac{\alpha}{\omega_{d}})}{\omega_{d}}\sim40.7\mu s$
+\begin_inset Formula $t_{1}=\frac{atan(\nicefrac{\alpha}{\omega_{d}})}{\omega_{d}}\sim0.71\mu s$
 \end_inset
 
 .
- En cuanto al tiempo de establecimiento, lo consideramos como 
+ Sin embargo, esto corresponde al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+m
+\backslash
+'inimo
+\end_layout
+
+\end_inset
+
+ de la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+funci
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+, y por lo tanto para obtener el verdadero 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+m
+\backslash
+'aximo
+\end_layout
+
+\end_inset
+
+ debemos ir al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+pr
+\backslash
+'oximo
+\end_layout
+
+\end_inset
+
+ pico, que 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+estar
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+ en 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t_{MAX}=t_1+
+\backslash
+frac{T'}{2}
+\backslash
+sim 11.6
+\backslash
+mu s$
+\end_layout
+
+\end_inset
+
+En cuanto al tiempo de establecimiento, lo consideramos como 
 \begin_inset ERT
 status open
 
@@ -814,31 +916,14 @@ t
 
 \end_inset
 
- sinusoidal como 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-id
-\backslash
-'entico
-\end_layout
-
-\end_inset
-
- a si estuviera evaluado en 
-\begin_inset Formula $t_{A_{MAX}}$
-\end_inset
-
-.
+ sinusoidal como 1.
  Por lo tanto:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-A_{MAX}=e^{-\alpha t_{A_{MAX}}}\cdot\left(\frac{\alpha}{\omega_{d}}\sin{(\omega_{d}t_{A_{MAX}})}+\cos{(\omega_{d}t_{A_{MAX}})}\right)=0.0871\cdot1.021=0.089\label{eq:2-amax}
+A_{MAX}=1-e^{-\alpha t_{A_{MAX}}}\cdot\left(\frac{\alpha}{\omega_{d}}\sin{(\omega_{d}t_{A_{MAX}})}+\cos{(\omega_{d}t_{A_{MAX}})}\right)=1-0.49\cdot(-1.021)\sim1.5\label{eq:2-amax}
 \end{equation}
 
 \end_inset
@@ -849,7 +934,7 @@ A_{MAX}=e^{-\alpha t_{A_{MAX}}}\cdot\left(\frac{\alpha}{\omega_{d}}\sin{(\omega_
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-t_{5\%}=\frac{1}{\alpha}\ln{\left(\frac{1.021}{0.05}\right)}=50.3\mu s\label{eq:2-t5}
+t_{5\%}=\frac{1}{\alpha}\ln{\left(\frac{1}{0.05}\right)}=50.3\mu s\label{eq:2-t5}
 \end{equation}
 
 \end_inset
@@ -1167,7 +1252,243 @@ Respuesta en frecuencia
 \end_layout
 
 \begin_layout Standard
-La frecuencia de resonancia medida, consi
+La frecuencia de resonancia medida, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+consider
+\backslash
+'andola
+\end_layout
+
+\end_inset
+
+ como aquella en la cual la fase es de 
+\begin_inset Formula $-90^{\circ}$
+\end_inset
+
+, es 
+\begin_inset Formula $46.6kHz$
+\end_inset
+
+, lo cual implica un error de alrededor de un 
+\begin_inset Formula $1.5\%$
+\end_inset
+
+ en el 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+c
+\backslash
+'alculo
+\end_layout
+
+\end_inset
+
+ realizado en la parte (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{sssection:2-calc-rtafrec}
+\end_layout
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+Como se observa en el diagrama de bode de la figura (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{fig:2-rtafrec}
+\end_layout
+
+\end_inset
+
+), la respuesta en frecuencia observada coincide con la planteada 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+te
+\backslash
+'oricamente
+\end_layout
+
+\end_inset
+
+, salvo por dos cuestiones.
+ En primer lugar, el sobrepico no es tan pronunciado en las mediciones como
+ se esperaba.
+ Esto puede deberse a que resistencias 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+par
+\backslash
+'asitas
+\end_layout
+
+\end_inset
+
+ del circuito, sobre todo la resistencia de la bobina, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+est
+\backslash
+'en
+\end_layout
+
+\end_inset
+
+ afectando el factor de calidad.
+ Considerando que la resistencia utilizada es 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+s
+\backslash
+'olo
+\end_layout
+
+\end_inset
+
+ de 
+\begin_inset Formula $120\Omega$
+\end_inset
+
+, no es necesario que estas resistencias sean elevadas para afectar visiblemente
+ el comportamiento del circuito.
+\end_layout
+
+\begin_layout Standard
+Por otro lado, en las mediciones la fase comienza a decrecer, para frecuencias
+ altas, indicando la presencia de un polo en alrededor de los 
+\begin_inset Formula $MHz$
+\end_inset
+
+, mientras que 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+te
+\backslash
+'oricamente deber
+\backslash
+'ia
+\end_layout
+
+\end_inset
+
+ mantenerse constante.
+ Esto se debe a la presencia del 
+\emph on
+buffer
+\emph default
+: el polo del operacional comienza a ser apreciable en estas frecuencias.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename imagenes/labo_tp2_ej2_bode_mag.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename imagenes/labo_tp2_ej2_bode_fase.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta en frecuencia del circuito RLC serie pasa bajos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig:2-rtafrec}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1188,7 +1509,1122 @@ escal
 \end_layout
 
 \begin_layout Standard
-La frecuencia de resonanci
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/rochi/Google Drive/Materias/Laboratorio de electrónica/TPs/Labo_electro_TP2/Informe/datos/t2_e2_a_1.bmp
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+escal
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ (entrada en amarillo, salida en verde)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se observa, la forma de la respuesta al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+escal
+\backslash
+'on es la esperada: como $
+\backslash
+nicefrac{
+\backslash
+alpha}{
+\backslash
+omega_d}
+\backslash
+ll 1$
+\end_layout
+
+\end_inset
+
+, la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+funci
+\backslash
+'on es p
+\backslash
+'racticamente un $-
+\backslash
+cos{
+\backslash
+omega_d t}$ modulado por una exponencial.
+\end_layout
+
+\end_inset
+
+ La 
+\begin_inset Formula $\omega_{d}$
+\end_inset
+
+ medida fue de 
+\begin_inset Formula $45.5kHz$
+\end_inset
+
+, lo cual discrepa de los 
+\begin_inset Formula $45.9kHz$
+\end_inset
+
+ calculados por alrededor de un 1%, con lo cual se puede considerar que
+ el modelo predice correctamente el resultado obtenido, sobre todo teniendo
+ en cuenta que la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+presici
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ de la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+medici
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ es sin duda superior al 
+\begin_inset Formula $1\%$
+\end_inset
+
+, puesto que implicaba colocar los cursores 
+\begin_inset Quotes eld
+\end_inset
+
+a ojo
+\begin_inset Quotes erd
+\end_inset
+
+ para medir el 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+per
+\backslash
+'iodo
+\end_layout
+
+\end_inset
+
+.
+ El tiempo de establecimiento medido, por otra parte, fue de 
+\begin_inset Formula $\text{54.5\mu s}.$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Aqu
+\backslash
+'i
+\end_layout
+
+\end_inset
+
+ la discrepancia respecto del 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+c
+\backslash
+'alculo
+\end_layout
+
+\end_inset
+
+ es de un 7%, pero esta 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+medici
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+ es 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+a
+\backslash
+'un
+\end_layout
+
+\end_inset
+
+ menos precisa, puesto que se 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+consider
+\backslash
+'o
+\end_layout
+
+\end_inset
+
+ el 5% como el tercer pico de la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+oscilaci
+\backslash
+'on
+\end_layout
+
+\end_inset
+
+, mientras que 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+anal
+\backslash
+'iticamente s
+\backslash
+'olo
+\end_layout
+
+\end_inset
+
+ se tuvo en cuenta el amortiguamiento.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Repitiendo la medici
+\backslash
+'on con una entrada de $1V$, se determin
+\backslash
+'o que el m
+\backslash
+'aximo de la salida se encontraba en $1.47V$, es decir que nuestra predicci
+\backslash
+'on de $1.5V$ cuenta con un $2
+\backslash
+%$ de error.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sin embargo, esta respuesta 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+s
+\backslash
+'olo
+\end_layout
+
+\end_inset
+
+ es observable si el 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+per
+\backslash
+'iodo
+\end_layout
+
+\end_inset
+
+ de la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+se
+\backslash
+~nal
+\end_layout
+
+\end_inset
+
+ cuadrada con que se excita al circuito es mayor, pero del mismo orden,
+ que el tiempo de establecimiento, como se ilustra en la siguiente figura.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename imagenes/e1_b_2.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta a una 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+se
+\backslash
+~nal cuadrada de $2.6kHz$
+\end_layout
+
+\end_inset
+
+ (entrada en amarillo, salida en verde)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si en cambio el 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+per
+\backslash
+'iodo
+\end_layout
+
+\end_inset
+
+ es mucho mayor que el tiempo del transitorio, el mismo se hace despreciable
+ y no se observa en absoluto, dando lugar a otra 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+se
+\backslash
+~nal
+\end_layout
+
+\end_inset
+
+ cuadrada en la salida.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename imagenes/e1_b_1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta a una 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+se
+\backslash
+~nal cuadrada de $100kHz$
+\end_layout
+
+\end_inset
+
+ (entrada en amarillo, salida en verde)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Cuando el per
+\backslash
+'iodo comienza a hacerse menor que el transitorio, se comienza a observar
+ que la salida comienza a comportarse aproximadamente como una senoidal,
+ dando lugar a se
+\backslash
+~nales de este tipo para frecuencias mucho mayores a la de resonancia.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename imagenes/e1_b_3.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta a una 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+se
+\backslash
+~nal cuadrada de $100kHz$
+\end_layout
+
+\end_inset
+
+ (entrada en amarillo, salida en verde)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Efecto de distintos valores de 
+\begin_inset Formula $R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+El valor de resistencia cr
+\backslash
+'itica se determin
+\backslash
+'o experimentalmente como el menor con el cual la respuesta al escal
+\backslash
+'on se observaba estrictamente creciente, es decir que oscilaba y no superaba
+ el valor de establecimiento ni una vez.
+ Reemplazando la resistencia fija por un preset y variando su valor, se
+ determin
+\backslash
+'o que $R_C = 368
+\backslash
+Omega$.
+ Esto implica alrededor de un 35
+\backslash
+% de error respecto de lo calculado, lo cual puede deberse en parte a la
+ poca precisi
+\backslash
+'on del m
+\backslash
+'etodo, pero tambi
+\backslash
+'en probablemente a la resistencia serie de la bobina.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/rochi/Google Drive/Materias/Laboratorio de electrónica/TPs/Labo_electro_TP2/Informe/datos/t2_e2_d4_7.bmp
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+escal
+\backslash
+'on con $R=R_C$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+El efecto de reemplazar la resistencia por un cable, en cambio, fue m
+\backslash
+'as cercano al esperado.
+ Tal como se predijo, la frecuencia de la oscilaci
+\backslash
+'on es id
+\backslash
+'entica a la de resonancia, $46.6kHz$, lo cual implica que $
+\backslash
+alpha 
+\backslash
+ll 
+\backslash
+omega_0$, que coincide con el comportamiento de un circuito con poca amortiguaci
+\backslash
+'on.
+ El tiempo de establecimiento se determin
+\backslash
+'o en $96.8
+\backslash
+mu s$, es decir pr
+\backslash
+'acticamente el doble que con la resistencia.
+\backslash
+par
+\end_layout
+
+\begin_layout Plain Layout
+
+Se observa, adem
+\backslash
+'as, que la amplitud m
+\backslash
+'axima pasa de los $1.47V$ que se ten
+\backslash
+'ian con la primera resistencia a $1.92V$: tenemos un sobrepico casi el doble
+ de pronunciado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/rochi/Google Drive/Materias/Laboratorio de electrónica/TPs/Labo_electro_TP2/Informe/datos/t2_e2_d3_4.bmp
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+escal
+\backslash
+'on sin resistencia serie
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Se tomaron, adem
+\backslash
+'as mediciones con valores de resistencias intermedios.
+ Con $R=193
+\backslash
+Omega$, por ejemplo, la amplitud del sobre pico se vio reducida a $0.2V$
+ para una entrada de $1V$, con lo cual el sistema cuenta con una mayor amortigua
+ci
+\backslash
+'on que con la resistencia originalmente utilizada.
+ En este caso, se determin
+\backslash
+'o que la pseudofrecuencia era de $41.8kHz$ y el tiempo de establecimiento
+ $31.6
+\backslash
+mu s$, lo cual es consistete con un valor de $
+\backslash
+alpha$ m
+\backslash
+'as elevado que para $R=120
+\backslash
+Omega$.
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/rochi/Google Drive/Materias/Laboratorio de electrónica/TPs/Labo_electro_TP2/Informe/datos/t2_e2_d1_0.bmp
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+escal
+\backslash
+'on con $R=193
+\backslash
+Omega$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Luego, se procedi
+\backslash
+'o a medir el circuito con una resistencia 100 veces mayor a la anterior,
+ tambi
+\backslash
+'en haciendo uso de un preset.
+ Como era de esperar, para este valor el circuito ya se encuentra sobre
+ amortiguado.
+ El tiempo de establecimiento se determin
+\backslash
+'o en $128
+\backslash
+mu s$, lo cual es considerablemente superior al del cr
+\backslash
+'iticamente amortiguado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/rochi/Google Drive/Materias/Laboratorio de electrónica/TPs/Labo_electro_TP2/Informe/datos/t2_e2_d2_2.bmp
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+escal
+\backslash
+'on con $R=193
+\backslash
+Omega$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Efecto del 
+\emph on
+buffer
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+En las mediciones de respuesta en frecuencia, se observ
+\backslash
+'o que para frecuencias mayores a $100kHz$ la presencia del 
+\backslash
+textit{buffer} afectaba notablemente el comportamiento del circuito.
+ Cabe preguntarse, entonces, si no ser
+\backslash
+'ia m
+\backslash
+'as conveniente dejarlo de lado completamente.
+ Se efecutaron entonces mediciones de respuesta al escal
+\backslash
+'on sin el mismo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/rochi/Google Drive/Materias/Laboratorio de electrónica/TPs/Labo_electro_TP2/Informe/datos/t2_e2_e_d2_3.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+escal
+\backslash
+'on sin 
+\backslash
+textit{buffer}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Resulta claro aqu
+\backslash
+'i que es fundamental utilizar el 
+\backslash
+textit{buffer} para aislar la entrada de la salida.
+ Esto se debe a que la resistencia serie utilizada, de $120
+\backslash
+Omega$, es del mismo orden que los $50
+\backslash
+Omega$ del generador, causando que la entrada se deforme, lo cual a su vez
+ afecta a la salida.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
