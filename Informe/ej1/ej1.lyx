@@ -1038,91 +1038,9 @@ Modelo del capacitor real
 \end_layout
 
 \begin_layout Standard
-De donde se plantea la impedancia equivalente Z como:
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-par
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{centering}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $Z=\frac{(R_{1}+s\cdot L)\cdot(s\cdot C\cdot R_{2}+1)+R_{2}}{s\cdot C\cdot R_{2}+1}=\frac{{s^{2}\cdot C\cdot R_{2}\cdot L+s\cdot(L+C\cdot R_{2}\cdot R_{1})+R_{1}+R_{2}}}{s\cdot C\cdot R_{2}+1}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{centering}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Se piensa que 
-\begin_inset Formula $R_{2}$
-\end_inset
-
- tomará un valor muy grande y por ende se lo desprecia a la hora de hacer
- el primer calculo.
- Se fija C=12nF.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-par
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Luego, se plantea: 
-\end_layout
-
-\begin_layout Standard
-Se grafica el módulo de la impedancia para este modelo y se lo compara con
- la impedancia real, la medida.
+Dado que se perdieron mediciones de tanto G como la fase para el capacitor,
+ no se pudo continuar con la resolución del modelo.
+ Se adjuntan los datos obtenidos
 \end_layout
 
 \begin_layout Standard
@@ -1133,10 +1051,21 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/Capacitancia.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Modelo no ideal
+Capacitancia medida
 \end_layout
 
 \end_inset
@@ -1161,11 +1090,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Mediciones tomadas
-\end_layout
+\align center
+\begin_inset Graphics
+	filename imagenes/Dposta.png
+	scale 30
 
 \end_inset
 
@@ -1173,6 +1101,14 @@ Mediciones tomadas
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+D medido
+\end_layout
+
+\end_inset
+
 
 \end_layout
 

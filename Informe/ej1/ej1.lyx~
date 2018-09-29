@@ -1098,7 +1098,26 @@ Se piensa que
 \begin_inset Formula $R_{2}$
 \end_inset
 
- tomará un valor muy grande y por ende se lo desprecia.
+ tomará un valor muy grande y por ende se lo desprecia a la hora de hacer
+ el primer calculo.
+ Se fija C=12nF.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Luego, se plantea: 
 \end_layout
 
 \begin_layout Standard
